@@ -275,7 +275,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-08-28 10:18:57 / Modified: 19:06:08" itemprop="dateCreated datePublished" datetime="2023-08-28T10:18:57+08:00">2023-08-28</time>
+              <time title="Created: 2023-08-28 10:18:57 / Modified: 19:09:17" itemprop="dateCreated datePublished" datetime="2023-08-28T10:18:57+08:00">2023-08-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,7 +300,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>577</span>
+              <span>579</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -321,7 +321,7 @@
           <p>本文介绍机器学习的一个算法：KNN(K-Nearest Neighbor)k-近邻算法。<br>本文将提到：1.KNN算法的基本理论;  2.使用python实现KNN算法;  3.使用KNN算法处理简单的实际任务。</p>
 <h2 id="KNN算法简介"><a href="#KNN算法简介" class="headerlink" title="KNN算法简介"></a>KNN算法简介</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>通俗地说，KNN算法的指导思想就是“近朱者赤，近墨者黑”，即由和你临近的人来判断你的类别。<br>简单地说，KNN算法采用测量不同特征值之间的距离方法来进行分类。它的工作原理是：存在一个样本数据集合（训练样本集），并且样本集中每个数据都存在标签（即都有所属分类）。当我们输入一个未知样本后，将未知样本的每一个特征与原有样本集的对应特征进行比较，计算位置样本与所有已知样本的距离。从中选取与未知样本距离最近的K个已知样本，并将未知样本与K个最邻近已知样本占比较多的标签归为一类。这就是K近邻算法中K的出处。需要注意的是，通常k是不大于20的整数。</p>
 <h3 id="实例——电影分类（动作片or爱情片？）"><a href="#实例——电影分类（动作片or爱情片？）" class="headerlink" title="实例——电影分类（动作片or爱情片？）"></a>实例——电影分类（动作片or爱情片？）</h3><p>下面我们来通过电影分类的例子来帮助大家更好的理解KNN算法的工作原理。</p>
-<p>要想通过KNN算法实现爱情片和动作片的区分，首要的任务是明确”某一类型的电影有哪些独有的特征，使其明显区别于其他类型的电影？“。这些特征必须要能量化，即有对应的数值。这些数值将作为KNN算法的数据来源。</p>
+<p>要想通过KNN算法实现爱情片和动作片的区分，首要的任务是明确 <strong>”某一类型的电影有哪些独有的特征，使其明显区别于其他类型的电影？“</strong>。这些特征必须要可以被量化，即有对应的数值。这些数值将作为KNN算法的数据来源。</p>
 <p>不难总结出，动作片中经常出现打斗场景，而爱情片中经常出现亲吻场景。当然，动作片中也会存在接吻镜头，爱情片中也可能存在打斗场景，我们不能单纯依靠是否存在打斗或亲吻来判断影片类型。但是动作片中的打斗次数更频繁，而爱情片中的亲吻次数更多。因此，可以基于<strong>某种场景在某部电影中出现的次数</strong>来进行电影分类。</p>
 
       
