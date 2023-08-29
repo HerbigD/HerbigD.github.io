@@ -27,11 +27,13 @@
 <meta property="og:site_name" content="All about d">
 <meta property="og:description" content="本文介绍机器学习的一个算法：KNN(K-Nearest Neighbor)k-近邻算法。本文将提到：1.KNN算法的基本理论;  2.使用python实现KNN算法;  3.使用KNN算法处理简单的实际任务。 KNN算法简介基本原理通俗地说，KNN算法的指导思想就是“近朱者赤，近墨者黑”，即由和你临近的人来判断你的类别。简单地说，KNN算法采用测量不同特征值之间的距离方法来进行分类。它的工作原理是">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/1.png">
 <meta property="article:published_time" content="2023-08-28T02:18:57.000Z">
-<meta property="article:modified_time" content="2023-08-28T11:09:17.561Z">
+<meta property="article:modified_time" content="2023-08-29T15:09:32.607Z">
 <meta property="article:author" content="头大的D">
 <meta property="article:tag" content="machine learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/1.png">
 
 <link rel="canonical" href="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/">
 
@@ -189,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-08-28 10:18:57 / Modified: 19:09:17" itemprop="dateCreated datePublished" datetime="2023-08-28T10:18:57+08:00">2023-08-28</time>
+              <time title="Created: 2023-08-28 10:18:57" itemprop="dateCreated datePublished" datetime="2023-08-28T10:18:57+08:00">2023-08-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-08-29 23:09:32" itemprop="dateModified" datetime="2023-08-29T23:09:32+08:00">2023-08-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -216,13 +224,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>579</span>
+              <span>710</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -238,7 +246,59 @@
 <h2 id="KNN算法简介"><a href="#KNN算法简介" class="headerlink" title="KNN算法简介"></a>KNN算法简介</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>通俗地说，KNN算法的指导思想就是“近朱者赤，近墨者黑”，即由和你临近的人来判断你的类别。<br>简单地说，KNN算法采用测量不同特征值之间的距离方法来进行分类。它的工作原理是：存在一个样本数据集合（训练样本集），并且样本集中每个数据都存在标签（即都有所属分类）。当我们输入一个未知样本后，将未知样本的每一个特征与原有样本集的对应特征进行比较，计算位置样本与所有已知样本的距离。从中选取与未知样本距离最近的K个已知样本，并将未知样本与K个最邻近已知样本占比较多的标签归为一类。这就是K近邻算法中K的出处。需要注意的是，通常k是不大于20的整数。</p>
 <h3 id="实例——电影分类（动作片or爱情片？）"><a href="#实例——电影分类（动作片or爱情片？）" class="headerlink" title="实例——电影分类（动作片or爱情片？）"></a>实例——电影分类（动作片or爱情片？）</h3><p>下面我们来通过电影分类的例子来帮助大家更好的理解KNN算法的工作原理。</p>
 <p>要想通过KNN算法实现爱情片和动作片的区分，首要的任务是明确 <strong>”某一类型的电影有哪些独有的特征，使其明显区别于其他类型的电影？“</strong>。这些特征必须要可以被量化，即有对应的数值。这些数值将作为KNN算法的数据来源。</p>
-<p>不难总结出，动作片中经常出现打斗场景，而爱情片中经常出现亲吻场景。当然，动作片中也会存在接吻镜头，爱情片中也可能存在打斗场景，我们不能单纯依靠是否存在打斗或亲吻来判断影片类型。但是动作片中的打斗次数更频繁，而爱情片中的亲吻次数更多。因此，可以基于<strong>某种场景在某部电影中出现的次数</strong>来进行电影分类。</p>
+<p>不难总结出，动作片中经常出现打斗场景，而爱情片中经常出现亲吻场景。当然，动作片中也会存在接吻镜头，爱情片中也可能存在打斗场景，我们不能单纯依靠是否存在打斗或亲吻来判断影片类型。但是动作片中的打斗次数更频繁，而爱情片中的亲吻次数更多。因此，可以基于<strong>某种场景在某部电影中出现的次数</strong>来进行电影分类。<br>如下图所示，我们收集了6部电影的打斗和亲吻次数。<br><img src="/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/1.png"><br>首先我们需要知未知电影中打斗和亲吻镜头的次数。上图中问号位置代表该未知电影，具体数字见下表：</p>
+<table>
+<thead>
+<tr>
+<th>电影名称</th>
+<th>打斗镜头</th>
+<th>亲吻镜头</th>
+<th>电影类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>California Man</td>
+<td>3</td>
+<td>104</td>
+<td>爱情片</td>
+</tr>
+<tr>
+<td>He’s Not Really into Dudes</td>
+<td>2</td>
+<td>100</td>
+<td>爱情片</td>
+</tr>
+<tr>
+<td>Beautiful Woman</td>
+<td>1</td>
+<td>81</td>
+<td>爱情片</td>
+</tr>
+<tr>
+<td>Kevin Longblade</td>
+<td>101</td>
+<td>10</td>
+<td>动作片</td>
+</tr>
+<tr>
+<td>Robo Slayer 3000</td>
+<td>99</td>
+<td>5</td>
+<td>动作片</td>
+</tr>
+<tr>
+<td>Amped ll</td>
+<td>98</td>
+<td>2</td>
+<td>动作片</td>
+</tr>
+<tr>
+<td>?</td>
+<td>18</td>
+<td>90</td>
+<td>未知</td>
+</tr>
+</tbody></table>
 
     </div>
 
