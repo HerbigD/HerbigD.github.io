@@ -28,8 +28,10 @@
 <meta property="og:description" content="本文介绍机器学习的一个算法：KNN(K-Nearest Neighbor)k-近邻算法。本文将提到：1.KNN算法的基本理论;  2.使用python实现KNN算法;  3.使用KNN算法处理简单的实际任务。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/1.png">
+<meta property="og:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/2.png">
+<meta property="og:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/3.png">
 <meta property="article:published_time" content="2023-08-28T02:18:57.000Z">
-<meta property="article:modified_time" content="2023-08-30T07:06:08.057Z">
+<meta property="article:modified_time" content="2023-08-30T07:18:22.476Z">
 <meta property="article:author" content="头大的D">
 <meta property="article:tag" content="machine learning">
 <meta name="twitter:card" content="summary">
@@ -199,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-08-30 15:06:08" itemprop="dateModified" datetime="2023-08-30T15:06:08+08:00">2023-08-30</time>
+                <time title="Modified: 2023-08-30 15:18:22" itemprop="dateModified" datetime="2023-08-30T15:18:22+08:00">2023-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,13 +226,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>963</span>
+              <span>924</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>4 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -306,8 +308,8 @@
 </code></pre>
 <p>电影名称   |   与未知电影的距离<br>California Man |  20.5<br>He’s Not Really into Dudes  |  18.7<br>Beautiful Woman  |  19.2<br>Kevin Longblade   |  115.3<br>Robo Slayer 3000  |  117.4<br>Amped ll   |  118.9</p>
 <p>现在我们得到了样本集中所有电影与未知电影的距离，可以找到k个距离最近的电影。假定k&#x3D;3, 则最靠近的三个电影类型是:<em>He’s Not Really into Dudes</em>,<em>Beautiful Woman</em>,<em>California Man</em>. 这三部电影全是爱情片，因此我们判定未知电影是爱情片。</p>
-<h3 id="补充介绍如何计算距离"><a href="#补充介绍如何计算距离" class="headerlink" title="补充介绍如何计算距离"></a>补充介绍如何计算距离</h3><p>一般采用欧拉距离公式:<br>$$<br>d &#x3D; $\sqrt{\left(x^{(a)}-x^{(b)}\right)^2+\left(y^{(a)}-y^{(b)}\right)^2}$<br>$$</p>
-<p>n维特征空间欧式距离计算公式:<br>$$<br>$\sqrt{\left(X_1^{(a)}-X_1^{(b)}\right)^2+\left(X_2^{(a)}-X_2^{(b)}\right)^2+\ldots+\left(X_n^{(a)}-X_n^{(b)}\right)^2}$<br>$$</p>
+<h3 id="补充介绍如何计算距离"><a href="#补充介绍如何计算距离" class="headerlink" title="补充介绍如何计算距离"></a>补充介绍如何计算距离</h3><p>一般采用欧拉距离公式:<br><img src="/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/2.png"></p>
+<p>n维特征空间欧式距离计算公式:<br><img src="/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/3.png"></p>
 
     </div>
 
