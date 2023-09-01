@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/2.png">
 <meta property="og:image" content="http://example.com/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/3.png">
 <meta property="article:published_time" content="2023-08-28T02:18:57.000Z">
-<meta property="article:modified_time" content="2023-08-30T07:21:04.961Z">
+<meta property="article:modified_time" content="2023-08-31T07:36:37.277Z">
 <meta property="article:author" content="头大的D">
 <meta property="article:tag" content="machine learning">
 <meta name="twitter:card" content="summary">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-08-30 15:21:04" itemprop="dateModified" datetime="2023-08-30T15:21:04+08:00">2023-08-30</time>
+                <time title="Modified: 2023-08-31 15:36:37" itemprop="dateModified" datetime="2023-08-31T15:36:37+08:00">2023-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,10 +303,40 @@
 <td>未知</td>
 </tr>
 </tbody></table>
-<p>然后我们计算未知电影与样本集合中其他电影的距离。（此处暂时不要考虑如何计算得到距离，后面会详细讲述。）</p>
-<pre><code>          表1  已知电影与未知电影的距离
-</code></pre>
-<p>电影名称   |   与未知电影的距离<br>California Man |  20.5<br>He’s Not Really into Dudes  |  18.7<br>Beautiful Woman  |  19.2<br>Kevin Longblade   |  115.3<br>Robo Slayer 3000  |  117.4<br>Amped ll   |  118.9</p>
+<p>然后我们计算未知电影与样本集合中其他电影的距离。（此处暂时不要考虑如何计算得到距离，后面会详细讲述。</p>
+<p>表1  已知电影与未知电影的距离</p>
+<table>
+<thead>
+<tr>
+<th>电影名称</th>
+<th>与未知电影的距离</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>California Man</td>
+<td>20.5</td>
+</tr>
+<tr>
+<td>He’s Not Really into Dudes</td>
+<td>18.7</td>
+</tr>
+<tr>
+<td>Beautiful Woman</td>
+<td>19.2</td>
+</tr>
+<tr>
+<td>Kevin Longblade</td>
+<td>115.3</td>
+</tr>
+<tr>
+<td>Robo Slayer 3000</td>
+<td>117.4</td>
+</tr>
+<tr>
+<td>Amped ll</td>
+<td>118.9</td>
+</tr>
+</tbody></table>
 <p>现在我们得到了样本集中所有电影与未知电影的距离，可以找到k个距离最近的电影。假定k&#x3D;3, 则最靠近的三个电影类型是:<em>He’s Not Really into Dudes</em>,<em>Beautiful Woman</em>,<em>California Man</em>. 这三部电影全是爱情片，因此我们判定未知电影是爱情片。</p>
 <h3 id="补充介绍如何计算距离"><a href="#补充介绍如何计算距离" class="headerlink" title="补充介绍如何计算距离"></a>补充介绍如何计算距离</h3><p>一般采用欧氏距离公式:<br><img src="/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/2.png"></p>
 <p>n维特征空间欧氏距离计算公式:<br><img src="/2023/08/28/k%E4%B8%B4%E8%BF%91%E7%AE%97%E6%B3%95/3.png"></p>
