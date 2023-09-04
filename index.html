@@ -163,6 +163,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/04/Python-%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Her.jpg">
+      <meta itemprop="name" content="头大的D">
+      <meta itemprop="description" content="INFP/lifelong learner/explorer/slow thinker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="All about d">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/04/Python-%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">Python-递归函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-09-04 19:43:01 / Modified: 20:12:57" itemprop="dateCreated datePublished" datetime="2023-09-04T19:43:01+08:00">2023-09-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AIHER/" itemprop="url" rel="index"><span itemprop="name">AIHER</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AIHER/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>446</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如果在一个函数内部调用函数本身，这个函数就是递归函数。<br>举个简单例子，计算阶乘(factorial) n! &#x3D; 1 \times 2 \times 3 \times … \times n<br>我们定义函数fact(n) &#x3D; n! &#x3D; 1 \times 2 \times 3 \times … \times n-1 \times n &#x3D; (n - 1)! \times n<br>&#x3D; fact(n-1) times\ n<br>我们发现fact(n)可以用fact(n-1) \times n来表示<br>因此，fact(n)用递归的方式写出来就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fact</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> n * fact(n-<span class="number">1</span>) </span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fact(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>120
+</code></pre>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p><strong>通过递归函数实现汉诺塔的移动</strong><br>    ‘’’汉诺塔（Tower of Hanoi），又称河内塔，是一个源于印度古老传说的益智玩具。<br>大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。<br>大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。<br>并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。’’’</p>
+<p>请编写move(n, a, b, c)函数，它接收参数n，表示3个柱子A、B、C中第1个柱子A的盘子数量，然后打印出把所有盘子从A借助B移动到C的方法，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">move</span>(<span class="params">n, a, b, c</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;move&#x27;</span>, a, <span class="string">&#x27;--&gt;&#x27;</span>, c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 期待输出:</span></span><br><span class="line"><span class="comment"># A --&gt; C</span></span><br><span class="line"><span class="comment"># A --&gt; B</span></span><br><span class="line"><span class="comment"># C --&gt; B</span></span><br><span class="line"><span class="comment"># A --&gt; C</span></span><br><span class="line"><span class="comment"># B --&gt; A</span></span><br><span class="line"><span class="comment"># B --&gt; C</span></span><br><span class="line"><span class="comment"># A --&gt; C</span></span><br><span class="line">move(<span class="number">3</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>给出代码(当时绞尽脑汁也没想出来)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">move</span>(<span class="params">n, a, b, c</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;move&#x27;</span>, a, <span class="string">&#x27;--&gt;&#x27;</span>, c)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        move(n-<span class="number">1</span>, a, c, b)</span><br><span class="line">        move(<span class="number">1</span>, a, b, c)</span><br><span class="line">        move(n-<span class="number">1</span>, b, a, c)</span><br><span class="line"></span><br><span class="line">move(<span class="number">3</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>move A --&gt; C
+move A --&gt; B
+move C --&gt; B
+move A --&gt; C
+move B --&gt; A
+move B --&gt; C
+move A --&gt; C
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/02/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95python%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -188,7 +295,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-09-02 20:12:27 / Modified: 20:14:17" itemprop="dateCreated datePublished" datetime="2023-09-02T20:12:27+08:00">2023-09-02</time>
+              <time title="Created: 2023-09-02 20:12:27 / Modified: 20:20:27" itemprop="dateCreated datePublished" datetime="2023-09-02T20:12:27+08:00">2023-09-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -213,7 +320,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>920</span>
+              <span>921</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -238,333 +345,14 @@
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dataset = &#123;<span class="string">&#x27;电影名称&#x27;</span>:[<span class="string">&#x27;Titanic&#x27;</span>,<span class="string">&#x27;Flipped&#x27;</span>,<span class="string">&#x27;Love Letter&#x27;</span>,<span class="string">&#x27;Kill Bill&#x27;</span>,<span class="string">&#x27;The Dark Knight Rises&#x27;</span>,<span class="string">&#x27;The Rock&#x27;</span>],</span><br><span class="line">           <span class="string">&#x27;打斗镜头&#x27;</span>:[<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">112</span>,<span class="number">100</span>,<span class="number">98</span>],</span><br><span class="line">           <span class="string">&#x27;接吻镜头&#x27;</span>:[<span class="number">101</span>,<span class="number">99</span>,<span class="number">105</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>],</span><br><span class="line">           <span class="string">&#x27;电影类型&#x27;</span>:[<span class="string">&#x27;爱情片&#x27;</span>,<span class="string">&#x27;爱情片&#x27;</span>,<span class="string">&#x27;爱情片&#x27;</span>,<span class="string">&#x27;动作片&#x27;</span>,<span class="string">&#x27;动作片&#x27;</span>,<span class="string">&#x27;动作片&#x27;</span>]&#125;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movie_data = pd.DataFrame(dataset) </span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movie_data</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>电影名称</th>
-      <th>打斗镜头</th>
-      <th>接吻镜头</th>
-      <th>电影类型</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Titanic</td>
-      <td>3</td>
-      <td>101</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Flipped</td>
-      <td>1</td>
-      <td>99</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Love Letter</td>
-      <td>2</td>
-      <td>105</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Kill Bill</td>
-      <td>112</td>
-      <td>3</td>
-      <td>动作片</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>The Dark Knight Rises</td>
-      <td>100</td>
-      <td>4</td>
-      <td>动作片</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>The Rock</td>
-      <td>98</td>
-      <td>2</td>
-      <td>动作片</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#2.计算未知电影和已知电影数据集中的点之间的距离</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_data = [<span class="number">13</span>,<span class="number">77</span>]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist = <span class="built_in">list</span> ((((movie_data.iloc[:<span class="number">6</span>,<span class="number">1</span>:<span class="number">3</span>]-new_data)**<span class="number">2</span>).<span class="built_in">sum</span>(<span class="number">1</span>))**<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(((movie_data.iloc[:<span class="number">6</span>,<span class="number">1</span>:<span class="number">3</span>]-new_data)**<span class="number">2</span>).<span class="built_in">sum</span>(<span class="number">1</span>))**<span class="number">0.5</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0     26.000000
-1     25.059928
-2     30.083218
-3    123.600162
-4    113.569362
-5    113.357840
-dtype: float64
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span> ((((movie_data.iloc[:<span class="number">6</span>,<span class="number">1</span>:<span class="number">3</span>]-new_data)**<span class="number">2</span>).<span class="built_in">sum</span>(<span class="number">1</span>))**<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[26.0,
- 25.059928172283335,
- 30.083217912982647,
- 123.60016181219181,
- 113.56936206565572,
- 113.35784048754634]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[26.0,
- 25.059928172283335,
- 30.083217912982647,
- 123.60016181219181,
- 113.56936206565572,
- 113.35784048754634]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对距离升序排列，并选取距离最小的k个点</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist_label = pd.DataFrame(&#123;<span class="string">&#x27;dist&#x27;</span>:dist, <span class="string">&#x27;labels&#x27;</span>:(movie_data.iloc[:<span class="number">6</span>,<span class="number">3</span>])&#125;)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(movie_data.iloc[:<span class="number">6</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0    爱情片
-1    爱情片
-2    爱情片
-3    动作片
-4    动作片
-5    动作片
-Name: 电影类型, dtype: object
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist_label</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>dist</th>
-      <th>labels</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>26.000000</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>25.059928</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>30.083218</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>123.600162</td>
-      <td>动作片</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>113.569362</td>
-      <td>动作片</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>113.357840</td>
-      <td>动作片</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="number">4</span></span><br><span class="line">rank = dist_label.sort_values(by = <span class="string">&#x27;dist&#x27;</span>)[: k]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rank</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>dist</th>
-      <th>labels</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>25.059928</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>26.000000</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>30.083218</td>
-      <td>爱情片</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>113.357840</td>
-      <td>动作片</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#确定k个点所属类别分别出现的频率</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = rank.loc[:,<span class="string">&#x27;labels&#x27;</span>].value_counts() </span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>爱情片    3
-动作片    1
-Name: labels, dtype: int64
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.index[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;爱情片&#39;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#5.选择频率最高的类别作为预测类别</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = []</span><br><span class="line">result.append(f.index[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;爱情片&#39;]
-</code></pre>
-<h3 id="2-封装函数"><a href="#2-封装函数" class="headerlink" title="2.封装函数"></a>2.封装函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="string">&quot;&quot;&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">函数功能：用kNN算法对未知数据类型进行分类</span></span><br><span class="line"><span class="string">参数说明：</span></span><br><span class="line"><span class="string">    inX:未知分类的数据集</span></span><br><span class="line"><span class="string">    dataSet0:已知分类标签的数据集（训练集）</span></span><br><span class="line"><span class="string">    k:k近邻算法参数，选择距离最小的k个点</span></span><br><span class="line"><span class="string">返回:</span></span><br><span class="line"><span class="string">    result:分类结果</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">classify0</span>(<span class="params">inX,dataSet0,k</span>):</span><br><span class="line">    </span><br><span class="line">    result = []</span><br><span class="line">    </span><br><span class="line">    dist = <span class="built_in">list</span> ((((movie_data.iloc[:<span class="number">6</span>,<span class="number">1</span>:<span class="number">3</span>]-new_data)**<span class="number">2</span>).<span class="built_in">sum</span>(<span class="number">1</span>))**<span class="number">0.5</span>) <span class="comment">#计算未知电影和已知电影数据集中的点之间的距离</span></span><br><span class="line">    dist_label = pd.DataFrame(&#123;<span class="string">&#x27;dist&#x27;</span>:dist, <span class="string">&#x27;labels&#x27;</span>:(movie_data.iloc[:<span class="number">6</span>,<span class="number">3</span>])&#125;) <span class="comment">#把每个距离分别对应上标签</span></span><br><span class="line">    rank = dist_label.sort_values(by = <span class="string">&#x27;dist&#x27;</span>)[: k] <span class="comment">#对距离进行排序</span></span><br><span class="line">    f = rank.loc[:,<span class="string">&#x27;labels&#x27;</span>].value_counts() <span class="comment">#选择频率最高的类别作为预测类别</span></span><br><span class="line">    result.append(f.index[<span class="number">0</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#测试运行结果</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inX = [<span class="number">122</span>,<span class="number">50</span>]</span><br><span class="line">dataSet0 = movie_data</span><br><span class="line">k = <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classify0(inX,dataSet0,k)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;爱情片&#39;]
-</code></pre>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/02/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95python%E5%AE%9E%E7%8E%B0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1030,20 +818,20 @@ Name: labels, dtype: int64
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1087,12 +875,12 @@ Name: labels, dtype: int64
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">3k</span>
+    <span title="Symbols count total">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">11 mins.</span>
+    <span title="Reading time total">13 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
