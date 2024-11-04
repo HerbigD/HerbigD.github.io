@@ -24,7 +24,7 @@
 <meta property="og:description" content="本文为 up 主 free-coder 半小时看懂&lt;计算机网络&gt;视频学习笔记（科普向）">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-04T02:39:32.000Z">
-<meta property="article:modified_time" content="2024-11-04T03:54:45.251Z">
+<meta property="article:modified_time" content="2024-11-04T06:08:18.488Z">
 <meta property="article:author" content="头大的D">
 <meta property="article:tag" content="Web">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          190 words
+          476 words
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          2 mins
+          4 mins
         
       </span>
     
@@ -279,14 +279,25 @@
                 
                 <p>本文为 up 主 free-coder 半小时看懂&lt;计算机网络&gt;视频学习笔记（科普向）</p>
 <span id="more"></span>
+<blockquote>
 <ul>
 <li>现在有两台计算机，要求我们自己设计一个计算机网络来实现这两台计算机之间的通信，我们该怎么设计？</li>
 </ul>
+</blockquote>
 <p>最简单的办法，用一根线将两台计算机连接起来，通过发送高低电平 1010 表示数据信号实现数据传输。</p>
+<blockquote>
 <ul>
 <li>如果我们现在有五台计算机，要实现计算机之间两两相互通信，我们该如何设计？</li>
 </ul>
-<p>显然在这种情况下直接拉线的办法</p>
+</blockquote>
+<p>显然，在这种情况下直接拉线的办法很复杂。于是我们想到能否通过中间设备（集线器 hub）将信息转发，这样能大大减少线的数量。</p>
+<blockquote>
+<ul>
+<li>集线器 Hub</li>
+</ul>
+</blockquote>
+<p>Hub 转发信息的方式比较暴力：比如 1 想发送信息到 3，Hub 会将信息无条件的都转发给 2，3，4，5. 这种无条件群发的通信方式为‘广播’。<br>想要解决这一问题，需要引入一个‘标识’的概念。1 首先将信息发送给 Hub，并将该信息标注收件人为 3，Hub 再将该信息无条件群发给 2，3，4，5 计算机。计算机 3 收到数据后发现信息是发送给自己的，于是将数据接受。而剩下的计算机则将信息丢弃。</p>
+<p>然而 Hub 只能处理电信号但不能分辨电信号，这就会导致一个问题：如果 1 和 2 同时发送了消息，Hub 在转发时</p>
 
                 
               </div>
