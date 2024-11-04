@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>计算机网络</title>
+    <link href="/2024/11/04/%E4%BA%92%E8%81%94%E7%BD%91%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%8E%9F%E7%90%86/"/>
+    <url>/2024/11/04/%E4%BA%92%E8%81%94%E7%BD%91%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%8E%9F%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<p>本文为 up 主 free-coder 半小时看懂&lt;计算机网络&gt;视频学习笔记（科普向）</p><span id="more"></span><ul><li>现在有两台计算机，要求我们自己设计一个计算机网络来实现这两台计算机之间的通信，我们该怎么设计？</li></ul><p>最简单的办法，用一根线将两台计算机连接起来，通过发送高低电平 1010 表示数据信号实现数据传输。</p><ul><li>如果我们现在有五台计算机，要实现计算机之间两两相互通信，我们该如何设计？</li></ul><p>显然在这种情况下直接拉线的办法</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>AIHER</category>
+      
+      <category>Web</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Web</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>浅谈AI工作权归属问题</title>
     <link href="/2023/12/11/%E6%B5%85%E8%B0%88AI%E5%B7%A5%E4%BD%9C%E6%9D%83%E5%BD%92%E5%B1%9E%E9%97%AE%E9%A2%98/"/>
     <url>/2023/12/11/%E6%B5%85%E8%B0%88AI%E5%B7%A5%E4%BD%9C%E6%9D%83%E5%BD%92%E5%B1%9E%E9%97%AE%E9%A2%98/</url>
@@ -88,31 +115,6 @@
     <url>/2023/09/13/%E5%B9%B3%E5%87%A1%E5%91%A8%E8%AE%B001/</url>
     
     <content type="html"><![CDATA[<h2 id="01-9-13-WED"><a href="#01-9-13-WED" class="headerlink" title="01 9.13 WED"></a>01 9.13 WED</h2><p>记录一下今天看好哥们答辩让我挺感动的细节吧。<br>我的这位朋友，我认为他身上最大的优点就是有侠气。就是那种平时吊儿郎当跟一群兄弟逃课打游戏鬼混，见面打招呼一个中指，或者“傻逼”、“bro”。但关键时候找他帮个忙办点事儿，他绝不含糊还真能给你办成了的那种人。他口无遮拦，活的很真。想骂你就骂你，觉得你傻逼是真的，觉得你好也是真的。我喜欢和这种人做朋友，不累，自在。<br><span id="more"></span><br>今天下午他要竞选学生会主席团候选人，他是第十四个。下边坐着的除了其他的竞选者，基本上都是他的朋友了。我们等了两个小时就为了看他“胡侃”五分钟，这小子也挺牛的，可以让这些人为他付出时间，且心甘情愿。<br><img src="/2023/09/13/%E5%B9%B3%E5%87%A1%E5%91%A8%E8%AE%B001/1.jpeg" alt="穿上西装这小子还挺帅"></p><p><style><br>    img[alt=”穿上西装这小子还挺帅”]{<br>        width:400px;<br>    }</style><br>当然他的女朋友也在。她给他准备了一大束花，藏着掖着就怕被他发现，我们俩鬼鬼祟祟好不容易才把这束花运下来。他答辩的时候，他女朋友比他还紧张，讲到最后她在下面一脸自豪，激动的跳起来猛竖大拇指。<br><img src="/2023/09/13/%E5%B9%B3%E5%87%A1%E5%91%A8%E8%AE%B001/2.jpeg" alt="2"></p><p><style><br>    img[alt=”2”]{<br>        width:400px;<br>    }</style><br>我又想到之前在英国时，他一提起“香菜”（他女朋友的名字），脸上也流露出这种骄傲的表情。这种“提起你嘴角不自觉的上扬”的笑容真真切切的让我感到很温暖。他们俩让我觉得身边还有真实的活着的人，还有爱。<br>就以一个局外人的视角写这么多吧。真心的祝他们一直好。以及祝他竞选成功。<br><img src="/2023/09/13/%E5%B9%B3%E5%87%A1%E5%91%A8%E8%AE%B001/3.jpeg" alt="3"></p><p><style><br>    img[alt=”3”]{<br>        width:400px;<br>    }</style><br>ps:个人觉得他的答辩是我看到的人当中最好的一个。没有滤镜，非常客观。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>碎碎念</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>随笔</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>只爱陌生人</title>
-    <link href="/2023/09/13/%E5%8F%AA%E7%88%B1%E9%99%8C%E7%94%9F%E4%BA%BA/"/>
-    <url>/2023/09/13/%E5%8F%AA%E7%88%B1%E9%99%8C%E7%94%9F%E4%BA%BA/</url>
-    
-    <content type="html"><![CDATA[]]></content>
     
     
     <categories>
