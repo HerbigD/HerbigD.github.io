@@ -1,0 +1,35 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  description?: string;
+  tags?: string[];
+  backHref: string;
+  backLabel: string;
+}
+
+const { title, date, description, tags, backHref, backLabel } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="post-header">
+    <p style="margin-bottom: 1rem;">
+      <a href={backHref} style="color: var(--color-text-muted); font-size: 0.875rem;">← {backLabel}</a>
+    </p>
+    <h1>{title}</h1>
+    <div class="post-meta">
+      <FormattedDate date={date} />
+      {tags && tags.length > 0 && (
+        <div class="post-tags">
+          {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </div>
+  </div>
+  <article class="prose">
+    <slot />
+  </article>
+</BaseLayout>

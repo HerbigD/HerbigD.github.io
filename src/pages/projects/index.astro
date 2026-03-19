@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Projects" description="个人实验和学习项目">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p>有趣的个人实验、学习项目</p>
+  </div>
+
+  {projects.length === 0 ? (
+    <p style="color: var(--color-text-muted);">还没有项目，敬请期待。</p>
+  ) : (
+    <div class="project-grid">
+      {projects.map(p => (
+        <ProjectCard
+          title={p.data.title}
+          description={p.data.description}
+          tech={p.data.tech}
+          url={p.data.url}
+          github={p.data.github}
+          status={p.data.status}
+          slug={p.slug}
+        />
+      ))}
+    </div>
+  )}
+</BaseLayout>

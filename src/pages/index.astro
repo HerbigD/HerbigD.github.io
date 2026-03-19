@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const sections = [
+  { href: '/projects', en: 'Projects', zh: '个人实验 & 学习项目' },
+  { href: '/tech-blog', en: '技术 Blog', zh: '技术笔记 & 学习记录' },
+  { href: '/musings', en: '胡思乱想', zh: '随思随想' },
+  { href: '/media', en: '书 / 影 / 音', zh: '阅读、观影、音乐、哲学' },
+  { href: '/life', en: '生活记录', zh: '网球、健身、饮食' },
+];
+---
+
+<BaseLayout title="Home" description="头大的D 的个人网站">
+  <div class="home-intro">
+    <h1>头大的 D</h1>
+    <p class="subtitle">INFP &nbsp;/&nbsp; lifelong learner &nbsp;/&nbsp; explorer &nbsp;/&nbsp; slow thinker</p>
+
+    <div class="bio">
+      <p>
+        你好，我是 D。目前在做一些有趣的探索——关于技术、思维，还有如何在这个快速变化的世界里慢慢生活。
+      </p>
+      <p>
+        这个网站是我的数字花园，记录学习的轨迹、随意的想法、喜欢的东西，以及日复一日的生活。
+      </p>
+    </div>
+
+    <div class="home-nav-grid">
+      {sections.map(s => (
+        <a href={s.href} class="home-nav-item">
+          <span class="en">{s.en}</span>
+          <span class="zh">{s.zh}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

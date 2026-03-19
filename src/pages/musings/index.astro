@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostListItem from '../../components/PostListItem.astro';
+
+const posts = (await getCollection('musings'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="胡思乱想" description="随思随想">
+  <div class="page-header">
+    <h1>胡思乱想</h1>
+    <p>一些零散的思考，想到什么写什么</p>
+  </div>
+
+  {posts.length === 0 ? (
+    <p style="color: var(--color-text-muted);">还没有内容，敬请期待。</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map(p => (
+        <PostListItem
+          title={p.data.title}
+          date={p.data.date}
+          slug={p.slug}
+          section="musings"
+          description={p.data.description}
+        />
+      ))}
+    </ul>
+  )}
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tech: string[];
+  url?: string;
+  github?: string;
+  status: 'active' | 'completed' | 'archived';
+  slug: string;
+}
+
+const { title, description, tech, url, github, status, slug } = Astro.props;
+
+const statusLabel: Record<string, string> = {
+  active: 'Active',
+  completed: 'Done',
+  archived: 'Archived',
+};
+---
+
+<article class="project-card">
+  <span class="status-badge">{statusLabel[status]}</span>
+  <h2><a href={`/projects/${slug}`}>{title}</a></h2>
+  <p>{description}</p>
+  {tech.length > 0 && (
+    <div class="project-tags">
+      {tech.map(t => <span class="tag">{t}</span>)}
+    </div>
+  )}
+  <div class="project-links">
+    {url && <a href={url} target="_blank" rel="noopener">Live ↗</a>}
+    {github && <a href={github} target="_blank" rel="noopener">GitHub ↗</a>}
+  </div>
+</article>

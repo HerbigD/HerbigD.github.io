@@ -1,0 +1,35 @@
+---
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  title: string;
+  type: 'book' | 'film' | 'music' | 'philosophy';
+  rating?: number;
+  date: Date;
+  slug: string;
+  author?: string;
+  director?: string;
+}
+
+const { title, type, rating, date, slug, author, director } = Astro.props;
+
+const typeLabel: Record<string, string> = {
+  book: '书',
+  film: '影',
+  music: '音',
+  philosophy: '哲学',
+};
+---
+
+<article class="media-item">
+  <div class="media-type">{typeLabel[type]}</div>
+  <h2><a href={`/media/${slug}`}>{title}</a></h2>
+  <div class="meta">
+    {author && <span>{author}</span>}
+    {director && <span>导演：{director}</span>}
+    <FormattedDate date={date} />
+  </div>
+  {rating && (
+    <div class="rating">{'★'.repeat(rating)}{'☆'.repeat(5 - rating)}</div>
+  )}
+</article>

@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostListItem from '../../components/PostListItem.astro';
+
+const posts = (await getCollection('life'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="生活记录" description="网球、健身、饮食">
+  <div class="page-header">
+    <h1>生活记录</h1>
+    <p>网球、健身、饮食，以及日常</p>
+  </div>
+
+  {posts.length === 0 ? (
+    <p style="color: var(--color-text-muted);">还没有内容，敬请期待。</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map(p => (
+        <PostListItem
+          title={p.data.title}
+          date={p.data.date}
+          slug={p.slug}
+          section="life"
+          description={p.data.description}
+        />
+      ))}
+    </ul>
+  )}
+</BaseLayout>

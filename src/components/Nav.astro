@@ -1,0 +1,29 @@
+---
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: '/projects', label: 'Projects' },
+  { href: '/tech-blog', label: '技术Blog' },
+  { href: '/musings', label: '胡思乱想' },
+  { href: '/media', label: '书影音' },
+  { href: '/life', label: '生活' },
+];
+---
+
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo">D</a>
+    <ul class="nav-links">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={pathname.startsWith(link.href) ? 'active' : ''}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

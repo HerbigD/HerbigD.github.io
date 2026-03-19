@@ -1,0 +1,18 @@
+---
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  slug: string;
+  section: string;
+  description?: string;
+}
+
+const { title, date, slug, section, description } = Astro.props;
+---
+
+<li class="post-list-item">
+  <FormattedDate date={date} />
+  <a href={`/${section}/${slug}`} class="post-title" title={description}>{title}</a>
+</li>
