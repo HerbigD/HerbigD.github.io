@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="canonical" href="https://herbigd.github.io/tech-blog/hello-astro/"><meta name="description" content="用 Astro 重建个人网站的过程记录"><title>网站重建：从 Hexo 到 Astro · 头大的D</title><meta property="og:title" content="网站重建：从 Hexo 到 Astro"><meta property="og:description" content="用 Astro 重建个人网站的过程记录"><meta property="og:url" content="https://herbigd.github.io/tech-blog/hello-astro/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/_astro/_slug_.3ybpwkZs.css"></head> <body> <nav> <div class="container"> <a href="/" class="nav-logo">D</a> <ul class="nav-links"> <li> <a href="/projects" class=""> Things I built </a> </li><li> <a href="/tech-blog" class="active"> Notes </a> </li><li> <a href="/musings" class=""> Musings </a> </li><li> <a href="/collection" class=""> Collection </a> </li><li> <a href="/life" class=""> Days </a> </li> </ul> </div> </nav> <main> <div class="container">  <div class="post-header"> <p style="margin-bottom: 1rem;"> <a href="/tech-blog" style="color: var(--color-text-muted); font-size: 0.875rem;">← 技术 Blog</a> </p> <h1>网站重建：从 Hexo 到 Astro</h1> <div class="post-meta"> <time datetime="2026-03-19T00:00:00.000Z" class="post-date">2026-03-19</time> <div class="post-tags"> <span class="tag">Astro</span><span class="tag">建站</span> </div> </div> </div> <article class="prose">  <p>这是技术 Blog 的第一篇文章，记录一下用 Astro 重建个人网站的过程。</p>
+<h2 id="为什么换框架">为什么换框架</h2>
+<p>原来的博客用的是 Hexo + Fluid 主题，功能挺好的，但自定义空间有限。换成 Astro 之后，CSS 和页面结构都可以完全自己掌控。</p>
+<h2 id="astro-的核心概念">Astro 的核心概念</h2>
+<p>Astro 是一个静态站点生成器，支持 Content Collections 来管理 Markdown 内容。每个板块（技术 Blog、胡思乱想等）都是一个 Collection，有自己的 schema 校验。</p>
+<p>写文章的流程很简单：</p>
+<ol>
+<li>在 <code>src/content/tech-blog/</code> 下新建一个 <code>.md</code> 文件</li>
+<li>写好 frontmatter（标题、日期等）</li>
+<li>git push → GitHub Actions 自动构建并发布</li>
+</ol>  </article>  </div> </main> <footer> <div class="container"> <p>© 2026 头大的D &nbsp;·&nbsp; Stay hungry, stay foolish</p> </div> </footer> </body></html>
