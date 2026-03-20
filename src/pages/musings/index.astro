@@ -8,10 +8,10 @@ const posts = (await getCollection('musings'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="胡思乱想" description="随思随想">
+<BaseLayout title="Musings" description="Half-formed thoughts and passing questions">
   <div class="page-header">
-    <h1>胡思乱想</h1>
-    <p>一些零散的思考，想到什么写什么</p>
+    <h1>Musings</h1>
+    <p>胡思乱想 | Half-formed thoughts and passing questions</p>
   </div>
 
   {posts.length === 0 ? (

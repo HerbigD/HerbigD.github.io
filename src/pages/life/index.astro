@@ -8,10 +8,10 @@ const posts = (await getCollection('life'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="生活记录" description="网球、健身、饮食">
+<BaseLayout title="Days" description="Small moments, quietly collected">
   <div class="page-header">
-    <h1>生活记录</h1>
-    <p>网球、健身、饮食，以及日常</p>
+    <h1>Days </h1>
+    <p>网球，健身，饮食 | Tennis, Gym, Food</p>
   </div>
 
   {posts.length === 0 ? (

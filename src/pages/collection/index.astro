@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MediaGridItem from '../../components/MediaGridItem.astro';
+
+const items = (await getCollection('media'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Collections" description="Books, films, and things that stayed with me">
+  <div class="page-header">
+    <h1>Collections</h1>
+    <p>读过的、看过的、听过的、思考过的 ｜ Books, films, and things that stayed with me</p>
+  </div>
+
+  {items.length === 0 ? (
+    <p style="color: var(--color-text-muted);">还没有内容，敬请期待。</p>
+  ) : (
+    <div class="media-grid">
+      {items.map(item => (
+        <MediaGridItem
+          title={item.data.title}
+          type={item.data.type}
+          rating={item.data.rating}
+          date={item.data.date}
+          slug={item.slug}
+          author={item.data.author}
+          director={item.data.director}
+        />
+      ))}
+    </div>
+  )}
+</BaseLayout>
