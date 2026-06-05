@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MediaCoverCard from '../../../components/MediaCoverCard.astro';
+
+const items = (await getCollection('collection'))
+  .filter(p => !p.data.draft && p.data.type === 'podcast')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="播客 | Collections" description="听过的播客">
+  <div class="page-header">
+    <p style="margin-bottom: 0.75rem;">
+      <a href="/collection/" style="color: var(--color-text-muted); font-size: 0.875rem;">← Collections</a>
+    </p>
+    <h1>🎙 播客</h1>
+    <p>Podcasts that stayed with me</p>
+  </div>
+
+  {items.length === 0 ? (
+    <p style="color: var(--color-text-muted);">还没有内容，敬请期待。</p>
+  ) : (
+    <div class="media-cover-grid">
+      {items.map(item => (
+        <MediaCoverCard
+          title={item.data.title}
+          type={item.data.type}
+          rating={item.data.rating}
+          slug={item.slug}
+          author={item.data.author}
+          director={item.data.director}
+          cover={item.data.cover}
+        />
+      ))}
+    </div>
+  )}
+</BaseLayout>

@@ -15,3 +15,6 @@ description: 拜椰教
 
 # 4.VITASIA ⭐️⭐️
 <img src="/image/life/coconut/coco_4.jpg" alt="VITASIA" width="400" />
+
+# 5.FOCO Roasted Coconut Water ⭐️⭐️⭐️
+<img src="/image/life/coconut/coco_5.jpg" alt="VITASIA" width="400" />

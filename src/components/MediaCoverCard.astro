@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  type: 'book' | 'film' | 'music' | 'podcast';
+  rating?: number;
+  slug: string;
+  author?: string;
+  director?: string;
+  cover?: string;
+}
+
+const { title, type, rating, slug, author, director, cover } = Astro.props;
+
+const placeholderEmoji: Record<string, string> = {
+  book: '📖',
+  film: '🎬',
+  music: '🎵',
+  podcast: '🎙',
+};
+
+const meta = author || director;
+---
+
+<article class="media-cover-card">
+  <a href={`/collection/${slug}`}>
+    <div class="cover-wrapper">
+      {cover ? (
+        <img src={cover} alt={title} loading="lazy" />
+      ) : (
+        <div class="cover-placeholder">
+          <span>{placeholderEmoji[type]}</span>
+        </div>
+      )}
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">{title}</h3>
+      {meta && <p class="card-meta">{meta}</p>}
+      {rating && (
+        <div class="card-rating">{'★'.repeat(rating)}{'☆'.repeat(5 - rating)}</div>
+      )}
+    </div>
+  </a>
+</article>
