@@ -7,7 +7,7 @@ const basePost = {
   draft: z.boolean().default(false),
 };
 
-const musings = defineCollection({
+const thoughts = defineCollection({
   type: 'content',
   schema: z.object({
     ...basePost,
@@ -19,24 +19,28 @@ const media = defineCollection({
   type: 'content',
   schema: z.object({
     ...basePost,
-    type: z.enum(['book', 'film', 'music', 'podcast']),
+    type: z.enum(['book', 'film', 'music', 'item']),
     rating: z.number().min(1).max(5).optional(),
     cover: z.string().optional(),
     author: z.string().optional(),
     director: z.string().optional(),
+    status: z.enum(['completed', 'ongoing']).optional(),
+    currentPage: z.number().optional(),
+    playMode: z.string().optional(),
+    watchCount: z.number().optional(),
   }),
 });
 
-const life = defineCollection({
+const diary = defineCollection({
   type: 'content',
   schema: z.object({
     ...basePost,
-    category: z.enum(['tennis', 'fitness', 'diet', 'diary','other']).default('other'),
+    category: z.enum(['tennis', 'fitness', 'diet', 'diary', 'other']).default('other'),
   }),
 });
 
 export const collections = {
-  musings,
+  thoughts,
   'collection': media,
-  life,
+  diary,
 };

@@ -1,8 +1,11 @@
 ---
-title: 我喝过的椰子水们
-date: 2026-03-20
-category: diet
-description: 拜椰教
+title: "我喝过的椰子水"
+date: 2026-03-02
+type: item
+cover: /image/life/coconut/coco_1.jpg
+description: "我是拜椰教徒"
+draft: false
+---
 ---
 # 1.VITACOCO ⭐️⭐️⭐️⭐️
 <img src="/image/life/coconut/coco_1.jpg" alt="VITACOCO" width="400" />

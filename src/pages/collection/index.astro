@@ -8,29 +8,27 @@ const counts = {
   book: allItems.filter(i => i.data.type === 'book').length,
   film: allItems.filter(i => i.data.type === 'film').length,
   music: allItems.filter(i => i.data.type === 'music').length,
-  podcast: allItems.filter(i => i.data.type === 'podcast').length,
+  item: allItems.filter(i => i.data.type === 'item').length,
 };
 
 const categories = [
-  { type: 'book',    zh: '书',   en: 'Books',    emoji: '📖', count: counts.book },
-  { type: 'film',    zh: '影',   en: 'Films',    emoji: '🎬', count: counts.film },
-  { type: 'music',   zh: '音乐', en: 'Music',    emoji: '🎵', count: counts.music },
-  { type: 'podcast', zh: '播客', en: 'Podcasts', emoji: '🎙', count: counts.podcast },
+  { type: 'book',  label: 'book',       count: counts.book },
+  { type: 'film',  label: 'film',       count: counts.film },
+  { type: 'music', label: 'music',      count: counts.music },
+  { type: 'item',  label: 'belongings', count: counts.item },
 ];
 ---
 
-<BaseLayout title="Collections" description="读过的、看过的、听过的">
+<BaseLayout title="Collections" description="book, film, music, belongings">
   <div class="page-header">
     <h1>Collections</h1>
-    <p>读过的、看过的、听过的 ｜ Things that stayed with me</p>
+    <p>book, film, music, belongings</p>
   </div>
 
   <div class="collection-hub">
     {categories.map(cat => (
       <a href={`/collection/${cat.type}/`} class="collection-category-card">
-        <span class="category-icon">{cat.emoji}</span>
-        <span class="category-zh">{cat.zh}</span>
-        <span class="category-en">{cat.en}</span>
+        <span class="category-en">{cat.label}</span>
         <span class="category-count">{cat.count} 条</span>
       </a>
     ))}

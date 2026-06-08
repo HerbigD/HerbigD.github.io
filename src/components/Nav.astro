@@ -2,15 +2,16 @@
 const pathname = Astro.url.pathname;
 
 const links = [
-  { href: '/musings', label: 'Musings' },
-  { href: '/collection', label: 'Collection' },
-  { href: '/life', label: 'Days' },
+  { href: '/about', label: 'about me' },
+  { href: '/collection', label: 'collections' },
+  { href: '/thoughts', label: 'thoughts' },
+  { href: '/diary', label: 'diary' },
 ];
 ---
 
 <nav>
   <div class="container">
-    <a href="/" class="nav-logo">D</a>
+    <a href="/" class="nav-logo">D.</a>
     <ul class="nav-links">
       {links.map(link => (
         <li>

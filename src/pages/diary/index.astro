@@ -3,15 +3,15 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostListItem from '../../components/PostListItem.astro';
 
-const posts = (await getCollection('life'))
+const posts = (await getCollection('diary'))
   .filter(p => !p.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Days" description="Small moments, quietly collected">
+<BaseLayout title="Diary" description="每天的日记">
   <div class="page-header">
-    <h1>Days </h1>
-    <p>生活，生活，今天我们好好的过| My life</p>
+    <h1>Diary</h1>
+    <p>生活，生活，今天我们好好的过</p>
   </div>
 
   {posts.length === 0 ? (
@@ -23,7 +23,7 @@ const posts = (await getCollection('life'))
           title={p.data.title}
           date={p.data.date}
           slug={p.slug}
-          section="life"
+          section="diary"
           description={p.data.description}
         />
       ))}

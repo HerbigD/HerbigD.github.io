@@ -3,15 +3,15 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostListItem from '../../components/PostListItem.astro';
 
-const posts = (await getCollection('musings'))
+const posts = (await getCollection('thoughts'))
   .filter(p => !p.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Musings" description="Half-formed thoughts and passing questions">
+<BaseLayout title="Thoughts" description="最近的一些感悟">
   <div class="page-header">
-    <h1>Musings</h1>
-    <p>胡思乱想 | thoughts</p>
+    <h1>Thoughts</h1>
+    <p>胡思乱想</p>
   </div>
 
   {posts.length === 0 ? (
@@ -23,7 +23,7 @@ const posts = (await getCollection('musings'))
           title={p.data.title}
           date={p.data.date}
           slug={p.slug}
-          section="musings"
+          section="thoughts"
           description={p.data.description}
         />
       ))}

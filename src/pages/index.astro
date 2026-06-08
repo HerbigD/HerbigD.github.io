@@ -1,35 +1,86 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 
-const sections = [
-  { href: '/musings', en: 'Musings', zh: 'Half-formed thoughts and passing questions' },
-  { href: '/collection', en: 'Collections', zh: 'Books, films, and things that stayed with me' },
-  { href: '/life', en: 'Days', zh: 'My life' },
-];
+const allCollection = (await getCollection('collection')).filter(p => !p.data.draft);
+
+const currentMusic = allCollection
+  .filter(i => i.data.type === 'music' && i.data.status === 'ongoing')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+
+const currentBook = allCollection
+  .filter(i => i.data.type === 'book' && i.data.status === 'ongoing')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+
+const recentFilm = allCollection
+  .filter(i => i.data.type === 'film')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+
+function renderStars(rating: number | undefined) {
+  if (!rating) return '';
+  const full = '★'.repeat(Math.floor(rating));
+  const empty = '☆'.repeat(5 - Math.floor(rating));
+  return full + empty;
+}
 ---
 
 <BaseLayout title="Home" description="头大的D 的个人网站">
-  <div class="home-intro">
-    <h1>头大的 D</h1>
-    <p class="subtitle">INFP &nbsp;/&nbsp; lifelong learner &nbsp;/&nbsp; explorer &nbsp;/&nbsp; slow thinker</p>
+  <div class="home-hero">
+    <p class="hero-label">HERE AND NOW.</p>
+    <h1 class="hero-title">
+      现实太闷，<br />
+      到梦境旅行。
+    </h1>
+    <p class="hero-subtitle">恍惚的面对世界，笔直的面对自己。</p>
+  </div>
 
-    <div class="bio">
-      <p>
-      
-      </p>
-      <p>
-       
-      </p>
-    </div>
+  <div class="now-section">
+    <p class="now-heading">此&ensp;刻</p>
+    <div class="now-grid">
+      <a href="/collection/music/" class="now-card">
+        <p class="now-card-label">正在听</p>
+        {currentMusic ? (
+          <>
+            <p class="now-card-title">{currentMusic.data.title}</p>
+            {currentMusic.data.playMode && (
+              <p class="now-card-meta">{currentMusic.data.playMode}</p>
+            )}
+          </>
+        ) : (
+          <p class="now-card-title now-card-empty">暂无</p>
+        )}
+        <div class="now-card-bar"></div>
+      </a>
 
-    <div class="home-nav-grid">
-      {sections.map(s => (
-        <a href={s.href} class="home-nav-item">
-          <span class="en">{s.en}</span>
-          <span class="zh">{s.zh}</span>
-        </a>
-      ))}
+      <a href="/collection/book/" class="now-card">
+        <p class="now-card-label">正在读</p>
+        {currentBook ? (
+          <>
+            <p class="now-card-title">{currentBook.data.title}</p>
+            {currentBook.data.currentPage && (
+              <p class="now-card-meta">读到第 {currentBook.data.currentPage} 页</p>
+            )}
+          </>
+        ) : (
+          <p class="now-card-title now-card-empty">暂无</p>
+        )}
+      </a>
+
+      <a href="/collection/film/" class="now-card">
+        <p class="now-card-label">最近看过</p>
+        {recentFilm ? (
+          <>
+            <p class="now-card-title">{recentFilm.data.title}</p>
+            <p class="now-card-meta">
+              {renderStars(recentFilm.data.rating)}
+              {recentFilm.data.watchCount && ` 第${recentFilm.data.watchCount}次`}
+            </p>
+          </>
+        ) : (
+          <p class="now-card-title now-card-empty">暂无</p>
+        )}
+      </a>
     </div>
   </div>
 </BaseLayout>
