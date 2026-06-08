@@ -4,7 +4,6 @@ date: 2026-05-31
 type: book
 author: "米兰昆德拉"
 cover: /image/collection/book/buneng.jpg
-description: "一句简短评价"
 status: ongoing
 draft: false
 ---
