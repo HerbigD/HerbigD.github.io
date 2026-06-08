@@ -121,6 +121,14 @@ nav .container {
   color: var(--color-accent-dark);
 }
 
+.nav-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
