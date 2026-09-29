@@ -1,32 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PostListItem from '../../components/PostListItem.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getAllWriting } from '../../lib/posts';
 
-const posts = (await getCollection('diary'))
-  .filter(p => !p.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = (await getAllWriting()).filter(w => w.section === 'diary');
 ---
 
 <BaseLayout title="Diary" description="每天的日记">
   <div class="page-header">
-    <h1>Diary</h1>
+    <h1>diary</h1>
     <p>生活，生活，今天我们好好的过</p>
   </div>
 
   {posts.length === 0 ? (
-    <p style="color: var(--color-text-muted);">还没有内容，敬请期待。</p>
+    <p class="empty">还没有内容，敬请期待。</p>
   ) : (
-    <ul class="post-list">
-      {posts.map(p => (
-        <PostListItem
-          title={p.data.title}
-          date={p.data.date}
-          slug={p.slug}
-          section="diary"
-          description={p.data.description}
-        />
-      ))}
-    </ul>
+    <div class="post-stream">
+      {posts.map(w => <PostCard writing={w} showSection={false} />)}
+    </div>
   )}
 </BaseLayout>

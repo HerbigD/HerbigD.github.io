@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "new": "node scripts/new.mjs"
   },
   "dependencies": {
     "astro": "^4.16.0"

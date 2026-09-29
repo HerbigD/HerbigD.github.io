@@ -4,6 +4,8 @@ const basePost = {
   title: z.string(),
   date: z.date(),
   description: z.string().optional(),
+  /** 可选：自定义首页摘要；不写则自动截取正文开头 */
+  excerpt: z.string().optional(),
   draft: z.boolean().default(false),
 };
 

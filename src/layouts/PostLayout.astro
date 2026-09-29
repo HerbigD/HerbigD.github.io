@@ -2,6 +2,8 @@
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
+interface Link { url: string; title: string }
+
 interface Props {
   title: string;
   date: Date;
@@ -9,27 +11,40 @@ interface Props {
   tags?: string[];
   backHref: string;
   backLabel: string;
+  minutes?: number;
+  newer?: Link;
+  older?: Link;
 }
 
-const { title, date, description, tags, backHref, backLabel } = Astro.props;
+const { title, date, description, tags, backHref, backLabel, minutes, newer, older } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
-  <div class="post-header">
-    <p style="margin-bottom: 1rem;">
-      <a href={backHref} style="color: var(--color-text-muted); font-size: 0.875rem;">← {backLabel}</a>
-    </p>
+<BaseLayout title={title} description={description} bodyClass="is-post">
+  <header class="post-header">
+    <p class="post-kicker"><a href={backHref}>{backLabel}</a></p>
     <h1>{title}</h1>
     <div class="post-meta">
       <FormattedDate date={date} />
+      {minutes && <span>约 {minutes} 分钟</span>}
       {tags && tags.length > 0 && (
         <div class="post-tags">
           {tags.map(tag => <span class="tag">{tag}</span>)}
         </div>
       )}
     </div>
-  </div>
+  </header>
   <article class="prose">
     <slot />
   </article>
+  <p class="post-end" aria-hidden="true">— 完 —</p>
+  {(newer || older) && (
+    <nav class="post-nav" aria-label="更多文章">
+      <div>
+        {newer && (<a href={newer.url}><span class="post-nav-label">← 较新</span><span class="post-nav-title">{newer.title}</span></a>)}
+      </div>
+      <div class="post-nav-older">
+        {older && (<a href={older.url}><span class="post-nav-label">较早 →</span><span class="post-nav-title">{older.title}</span></a>)}
+      </div>
+    </nav>
+  )}
 </BaseLayout>

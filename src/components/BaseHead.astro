@@ -16,4 +16,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
+<meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)" />
 <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+<link rel="alternate" type="application/rss+xml" title="头大的D" href="/rss.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@400;600&display=swap"
+/>
+<script is:inline>
+  // 在渲染前应用主题，避免闪烁
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>

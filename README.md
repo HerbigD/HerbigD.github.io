@@ -1,5 +1,20 @@
 # 个人网站使用说明
 
+## 写作（最常用）
+
+```bash
+npm run new -- "标题"            # 新建 thoughts 文章
+npm run new -- diary "标题"      # 新建 diary
+npm run new -- "标题" --slug=abc # 指定网址 /thoughts/abc/
+npm run dev                      # 本地预览 http://localhost:4321
+```
+
+- 新文章默认 `draft: true`，写完删掉这一行，`git push` 后自动上线。
+- 首页摘要自动截取正文开头；想自定义就在 frontmatter 加 `excerpt: "..."`。
+- 正文为空的文章不会出现在列表里。
+- 首页是 thoughts + diary 的时间线（最新 10 篇），全部文章在 `/archive`，订阅在 `/rss.xml`。
+- 颜色/字体都在 `src/styles/global.css` 顶部的变量里；明暗模式跟随系统，右上角可切换。
+
 ## 目录
 
 - [项目结构](#项目结构)

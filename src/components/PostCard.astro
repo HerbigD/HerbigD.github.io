@@ -1,0 +1,17 @@
+---
+import type { Writing } from '../lib/posts';
+import { formatDate, sectionLabel } from '../lib/posts';
+
+interface Props { writing: Writing; showSection?: boolean }
+const { writing: w, showSection = true } = Astro.props;
+---
+
+<article class="post-card">
+  <h2 class="post-card-title"><a href={w.url}>{w.title}</a></h2>
+  <p class="post-card-meta">
+    <time datetime={w.date.toISOString()}>{formatDate(w.date)}</time>
+    {showSection && <>&nbsp;·&nbsp;<a href={`/${w.section}/`}>{sectionLabel[w.section]}</a></>}
+  </p>
+  {w.excerpt && <p class="post-card-excerpt">{w.excerpt}</p>}
+  <a href={w.url} class="read-more" aria-label={`阅读《${w.title}》`}>阅读全文 →</a>
+</article>

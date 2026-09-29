@@ -2,29 +2,29 @@
 const pathname = Astro.url.pathname;
 
 const links = [
-  { href: '/about', label: 'about me' },
+  { href: '/archive', label: 'archive' },
+  { href: '/now', label: 'now' },
   { href: '/collection', label: 'collections' },
-  { href: '/thoughts', label: 'thoughts' },
-  { href: '/diary', label: 'diary' },
+  { href: '/about', label: 'about' },
 ];
 ---
 
-<nav>
+<header class="site-header">
   <div class="container">
-    <a href="/" class="nav-logo">
-      <img src="/image/cat.jpg" alt="logo" class="nav-logo-img" />
-    </a>
-    <ul class="nav-links">
-      {links.map(link => (
+    <a href="/" class="site-logo" aria-label="首页">D.</a>
+    <nav>
+      <ul class="nav-links">
+        {links.map(link => (
+          <li>
+            <a href={link.href} class={pathname.startsWith(link.href) ? 'active' : ''}>
+              {link.label}
+            </a>
+          </li>
+        ))}
         <li>
-          <a
-            href={link.href}
-            class={pathname.startsWith(link.href) ? 'active' : ''}
-          >
-            {link.label}
-          </a>
+          <button class="theme-toggle" type="button" aria-label="切换明暗" title="切换明暗"><span class="moon" aria-hidden="true"></span></button>
         </li>
-      ))}
-    </ul>
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>

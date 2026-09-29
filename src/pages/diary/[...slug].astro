@@ -1,25 +1,25 @@
 ---
-import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
+import { writingPaths, type Writing } from '../../lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('diary');
-  return posts.map(p => ({
-    params: { slug: p.slug },
-    props: { post: p },
-  }));
+  return writingPaths('diary');
 }
 
-const { post } = Astro.props;
-const { Content } = await post.render();
+interface Props { writing: Writing; newer?: Writing; older?: Writing }
+const { writing, newer, older } = Astro.props;
+const { Content } = await writing.entry.render();
 ---
 
 <PostLayout
-  title={post.data.title}
-  date={post.data.date}
-  description={post.data.description}
-  backHref="/diary"
-  backLabel="Diary"
+  title={writing.title}
+  date={writing.date}
+  description={writing.excerpt}
+  backHref="/diary/"
+  backLabel="diary"
+  minutes={writing.minutes}
+  newer={newer}
+  older={older}
 >
   <Content />
 </PostLayout>
