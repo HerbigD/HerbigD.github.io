@@ -189,6 +189,13 @@ main{flex:1;padding:var(--space-12) 0 var(--space-16)}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--space-6)}
 .media-type{font-family:var(--font-sans);font-size:.7rem;color:var(--color-text-muted)}
 
+/* ---------- 年度清单 /2026-list ---------- */
+.list-page h2{font-family:var(--font-type);font-weight:400;font-size:1.1rem;margin-top:2.2em;padding-bottom:.3em;border-bottom:1px solid var(--color-border)}
+.list-page ul{list-style:none;padding-left:0}
+.list-page li{padding:.2em 0;line-height:1.7}
+.list-page li::before{content:"· ";color:var(--color-text-muted)}
+.list-page del{color:var(--color-text-muted);text-decoration-color:var(--color-accent);text-decoration-thickness:1px}
+
 /* ---------- about ---------- */
 .about-content img{margin:0 0 var(--space-6);border-radius:3px}
 
@@ -213,6 +220,7 @@ main{flex:1;padding:var(--space-12) 0 var(--space-16)}
   body{font-size:16px}
   .site-header .container{flex-direction:column;align-items:flex-start;gap:var(--space-2)}
   .nav-links{gap:var(--space-3)}
+  .nav-links a{font-size:.82rem}
   .now-grid{grid-template-columns:1fr}
   .now-card + .now-card{border-left:0;border-top:1px solid var(--color-border)}
   .collection-hub{grid-template-columns:1fr}
