@@ -47,7 +47,13 @@ export function readingMinutes(body: string): number {
   return Math.max(1, Math.round(cjk / 400 + words / 220));
 }
 
-const isPublished = (e: WritingEntry) => !e.data.draft && e.body.trim().length > 0;
+/** 早于这个日期的文章不在网站上显示（原文件保留）。想恢复就改成 null */
+export const HIDE_BEFORE: Date | null = new Date('2026-01-01');
+
+const isPublished = (e: WritingEntry) =>
+  !e.data.draft &&
+  e.body.trim().length > 0 &&
+  (!HIDE_BEFORE || e.data.date >= HIDE_BEFORE);
 
 /** 所有公开文字（thoughts + diary），按时间倒序 */
 export async function getAllWriting(): Promise<Writing[]> {
