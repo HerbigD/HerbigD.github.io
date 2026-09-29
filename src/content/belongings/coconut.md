@@ -1,7 +1,6 @@
 ---
 title: "我喝过的椰子水"
 date: 2026-03-02
-type: item
 cover: /image/life/coconut/coco_1.jpg
 description: "我是拜椰教徒"
 draft: false

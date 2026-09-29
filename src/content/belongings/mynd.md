@@ -1,7 +1,6 @@
 ---
 title: "mynd"
 date: 2025-06-09
-type: item
 cover: /image/collection/item/mynd.jpg
 description: "app"
 draft: false

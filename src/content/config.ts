@@ -17,19 +17,11 @@ const thoughts = defineCollection({
   }),
 });
 
-const media = defineCollection({
+const belongings = defineCollection({
   type: 'content',
   schema: z.object({
     ...basePost,
-    type: z.enum(['book', 'film', 'music', 'item']),
-    rating: z.number().min(1).max(5).optional(),
     cover: z.string().optional(),
-    author: z.string().optional(),
-    director: z.string().optional(),
-    status: z.enum(['completed', 'ongoing']).optional(),
-    currentPage: z.number().optional(),
-    playMode: z.string().optional(),
-    watchCount: z.number().optional(),
   }),
 });
 
@@ -43,6 +35,6 @@ const diary = defineCollection({
 
 export const collections = {
   thoughts,
-  'collection': media,
+  belongings,
   diary,
 };

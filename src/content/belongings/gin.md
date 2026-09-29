@@ -1,7 +1,6 @@
 ---
 title: "金汤力与美式"
 date: 2026-06-07
-type: item
 cover: /image/collection/item/gin.jpg
 description: "一句评价"
 draft: false

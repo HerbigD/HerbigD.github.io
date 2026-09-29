@@ -1,7 +1,6 @@
 ---
 title: "Plotter"
 date: 2025-02-01
-type: item
 cover: /image/collection/item/plotter.jpg
 description: "写"
 draft: false

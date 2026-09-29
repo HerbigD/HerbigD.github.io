@@ -1,32 +1,24 @@
 ---
 import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
+import { readingMinutes } from '../../lib/posts';
 
 export async function getStaticPaths() {
-  const items = await getCollection('collection');
-  return items.map(item => ({
-    params: { slug: item.slug },
-    props: { item },
-  }));
+  const items = (await getCollection('belongings')).filter(p => !p.data.draft);
+  return items.map(item => ({ params: { slug: item.slug }, props: { item } }));
 }
 
 const { item } = Astro.props;
 const { Content } = await item.render();
-
-const backLabel: Record<string, string> = {
-  book: '书',
-  film: 'film',
-  music: '音乐',
-  podcast: '播客',
-};
 ---
 
 <PostLayout
   title={item.data.title}
   date={item.data.date}
   description={item.data.description}
-  backHref={`/collection/${item.data.type}/`}
-  backLabel={backLabel[item.data.type]}
+  backHref="/belongings/"
+  backLabel="belongings"
+  minutes={readingMinutes(item.body)}
 >
   <Content />
 </PostLayout>
