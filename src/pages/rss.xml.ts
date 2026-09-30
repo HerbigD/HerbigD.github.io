@@ -1,12 +1,28 @@
 import type { APIContext } from 'astro';
-import { getAllWriting } from '../lib/posts';
+import { getCollection } from 'astro:content';
+import { getAllWriting, makeExcerpt } from '../lib/posts';
 
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
-  const items = (await getAllWriting()).slice(0, 30).map(w => `
+  // thoughts + diary + belongings，按时间倒序合在一起
+  const writing = (await getAllWriting()).map(w => ({
+    title: w.title, url: w.url, date: w.date, section: w.section, excerpt: w.excerpt,
+  }));
+  const belongings = (await getCollection('belongings'))
+    .filter(b => !b.data.draft)
+    .map(b => ({
+      title: b.data.title,
+      url: `/belongings/${b.slug}/`,
+      date: b.data.date,
+      section: 'belongings',
+      excerpt: b.data.excerpt ?? b.data.description ?? makeExcerpt(b.body),
+    }));
+  const all = [...writing, ...belongings].sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+  const items = all.slice(0, 30).map(w => `
     <item>
       <title>${esc(w.title)}</title>
       <link>${site}${w.url}</link>
