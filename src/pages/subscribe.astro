@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const feedUrl = new URL('/rss.xml', Astro.site).toString();
+---
+
+<BaseLayout title="Subscribe" description="用 RSS 订阅头大的D">
+  <div class="page-header">
+    <h1>subscribe</h1>
+    <p>不用常来看，有新的会去找你。</p>
+  </div>
+
+  <div class="prose subscribe">
+    <p>
+      这里用 <strong>RSS</strong> 订阅：一种很老、也很安静的方式。不需要留邮箱，没有算法推荐。
+      你只要在阅读器里添加下面这个地址，我写了新东西（thoughts、diary、belongings），它就会出现在你那里。
+    </p>
+
+    <div class="feed-box">
+      <code id="feed-url">{feedUrl}</code>
+      <button type="button" id="copy-feed" class="copy-btn">copy</button>
+    </div>
+
+    <h2>三步</h2>
+    <ol>
+      <li><strong>装一个阅读器。</strong>iPhone / Mac 推荐 <a href="https://netnewswire.com/" target="_blank" rel="noopener">NetNewsWire</a>（免费）或 Reeder；安卓和网页可以用 <a href="https://feedly.com/" target="_blank" rel="noopener">Feedly</a> 或 <a href="https://www.inoreader.com/" target="_blank" rel="noopener">Inoreader</a>。</li>
+      <li><strong>添加订阅。</strong>在 app 里点"+"或"添加订阅"，粘贴上面的地址。</li>
+      <li><strong>然后就不用管了。</strong>新文章会自己来。</li>
+    </ol>
+
+    <p class="subscribe-note">已经在用阅读器？直接粘贴 <a href="/rss.xml">rss.xml</a> 就好。</p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('copy-feed');
+      var url = document.getElementById('feed-url');
+      if (!btn || !url) return;
+      btn.addEventListener('click', function () {
+        var text = url.textContent.trim();
+        var done = function () {
+          btn.textContent = 'copied';
+          setTimeout(function () { btn.textContent = 'copy'; }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { selectText(); });
+        } else { selectText(); }
+      });
+      function selectText() {
+        var r = document.createRange(); r.selectNodeContents(url);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      }
+    })();
+  </script>
+</BaseLayout>
