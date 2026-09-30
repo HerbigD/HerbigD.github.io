@@ -1,6 +1,6 @@
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { getAllWriting, makeExcerpt } from '../lib/posts';
+import { getAllWriting, makeExcerpt, excerptParagraphs, splitExcerpt } from '../lib/posts';
 
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -10,6 +10,7 @@ export async function GET(context: APIContext) {
   // thoughts + diary + belongings，按时间倒序合在一起
   const writing = (await getAllWriting()).map(w => ({
     title: w.title, url: w.url, date: w.date, section: w.section as string, excerpt: w.excerpt,
+    paras: w.excerptParas,
   }));
   const belongings = (await getCollection('belongings'))
     .filter(b => !b.data.draft)
@@ -19,6 +20,7 @@ export async function GET(context: APIContext) {
       date: b.data.date,
       section: 'belongings',
       excerpt: b.data.excerpt ?? makeExcerpt(b.body.replace(/<!--[\s\S]*?-->/g, '')),
+      paras: b.data.excerpt ? splitExcerpt(b.data.excerpt) : excerptParagraphs(b.body),
     }));
   const all = [...writing, ...belongings]
     .sort((a, b) => b.date.valueOf() - a.date.valueOf())
@@ -27,7 +29,8 @@ export async function GET(context: APIContext) {
   // 阅读器里只显示摘要，下面放一个 READ MORE 跳回网站
   const items = all.map(w => {
     const link = `${site}${w.url}`;
-    const content = `<p>${esc(w.excerpt)}</p>\n<p><a href="${link}">READ MORE</a></p>`;
+    const body = w.paras.map(p => `<p>${p.map(esc).join('<br>')}</p>`).join('\n');
+    const content = `${body}\n<p><a href="${link}">READ MORE</a></p>`;
     return `
     <item>
       <title>${esc(w.title)}</title>

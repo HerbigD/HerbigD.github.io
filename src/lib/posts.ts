@@ -10,6 +10,8 @@ export interface Writing {
   title: string;
   date: Date;
   excerpt: string;
+  /** 保留换行的摘要：段落 → 行 */
+  excerptParas: string[][];
   minutes: number;
 }
 
@@ -37,6 +39,72 @@ export function makeExcerpt(body: string, max = 120): string {
   const text = plainText(body);
   if (text.length <= max) return text;
   return text.slice(0, max).replace(/[，。、；：,.;:\s]+$/, '') + '……';
+}
+
+/**
+ * 保留原文换行/分段的摘要，和正文页的排版一致。
+ * 返回 段落[行[]]；超过 maxChars 字或 maxLines 行就截断并加"……"。
+ * 换行规则同 markdown：行尾两个空格（或 \\、<br>）是换行，空行是分段。
+ */
+export function excerptParagraphs(body: string, maxChars = 120, maxLines = 6): string[][] {
+  const cleaned = body
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<br\s*\/?>/gi, '  \n')
+    .replace(/<[^>]+>/g, '')                  // html 标签（含 <img>）
+    .replace(/!\[[^\]]*]\([^)]*\)/g, '')     // 图片
+    .replace(/\[([^\]]*)]\([^)]*\)/g, '$1');  // 链接保留文字
+
+  const paras: string[][] = [];
+  for (const block of cleaned.split(/\n[ \t]*\n/)) {
+    const lines: string[] = [];
+    let cur = '';
+    for (const raw of block.split('\n')) {
+      if (/^\s*[-*_]{3,}\s*$/.test(raw)) continue;          // 分隔线
+      const isBlock = /^\s{0,3}(#{1,6}|>|[-*+]|\d+\.)\s+/.test(raw); // 标题/引用/列表单独成行
+      const hard = / {2,}$|\\$/.test(raw);
+      const t = raw
+        .replace(/^\s{0,3}(#{1,6}|>|[-*+]|\d+\.)\s+/, '')
+        .replace(/\\$/, '')
+        .replace(/[*_`~]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (isBlock && cur) { lines.push(cur); cur = ''; }
+      if (t) cur = cur ? `${cur} ${t}` : t;
+      if ((hard || isBlock) && cur) { lines.push(cur); cur = ''; }
+    }
+    if (cur) lines.push(cur);
+    if (lines.length) paras.push(lines);
+  }
+
+  const out: string[][] = [];
+  let chars = 0, count = 0, truncated = false;
+  outer: for (const para of paras) {
+    const np: string[] = [];
+    for (const line of para) {
+      if (chars >= maxChars || count >= maxLines) { truncated = true; break; }
+      const remain = maxChars - chars;
+      if (line.length > remain) {
+        np.push(line.slice(0, remain).replace(/[，。、；：,.;:\s]+$/, '') + '……');
+        out.push(np);
+        return out;
+      }
+      np.push(line); chars += line.length; count++;
+    }
+    if (np.length) out.push(np);
+    if (truncated) break outer;
+  }
+  if (truncated && out.length) {
+    const last = out[out.length - 1];
+    last[last.length - 1] = last[last.length - 1].replace(/[，。、；：,.;:\s]+$/, '') + '……';
+  }
+  return out;
+}
+
+/** frontmatter 里手写的 excerpt 也按换行/空行拆开 */
+export function splitExcerpt(text: string): string[][] {
+  return text.split(/\n[ \t]*\n/)
+    .map(p => p.split('\n').map(l => l.trim()).filter(Boolean))
+    .filter(p => p.length);
 }
 
 /** 中文按 400 字/分钟，英文按 220 词/分钟粗略估算 */
@@ -68,6 +136,7 @@ export async function getAllWriting(): Promise<Writing[]> {
     title: entry.data.title,
     date: entry.data.date,
     excerpt: entry.data.excerpt ?? makeExcerpt(entry.body),
+    excerptParas: entry.data.excerpt ? splitExcerpt(entry.data.excerpt) : excerptParagraphs(entry.body),
     minutes: readingMinutes(entry.body),
   });
   return [
