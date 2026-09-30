@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <rect width="400" height="600" fill="#ece5d8"/>
+  <g stroke="#d6ccba" stroke-width="1">
+    <line x1="40" y1="150" x2="360" y2="150"/>
+    <line x1="40" y1="190" x2="360" y2="190"/>
+    <line x1="40" y1="230" x2="360" y2="230"/>
+    <line x1="40" y1="270" x2="360" y2="270"/>
+    <line x1="40" y1="390" x2="360" y2="390"/>
+    <line x1="40" y1="430" x2="360" y2="430"/>
+    <line x1="40" y1="470" x2="360" y2="470"/>
+  </g>
+  <text x="40" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#7d2a33">“</text>
+  <text x="40" y="322" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#2b2724">between</text>
+  <text x="40" y="358" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#2b2724">the lines</text>
+  <line x1="40" y1="534" x2="72" y2="534" stroke="#7d2a33" stroke-width="1.5"/>
+  <text x="84" y="539" font-family="'Songti SC','STSong','Noto Serif SC',serif" font-size="15" letter-spacing="4" fill="#8c8378">字里行间</text>
+</svg>

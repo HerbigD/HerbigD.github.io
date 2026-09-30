@@ -203,3 +203,9 @@ main{flex:1;padding:var(--space-12) 0 var(--space-16)}
   .post-nav{grid-template-columns:1fr}
   .post-nav-older{text-align:left}
 }
+
+/* ---------- 歌词 between the lines ---------- */
+.prose .lyric{margin:2.4em 0 1em}
+.prose .lyric blockquote{font-style:normal;font-size:1.08rem;line-height:2.1;color:var(--color-text);border-left:2px solid var(--color-accent);padding:.1em 0 .1em 1.2em;margin:0}
+.prose .lyric figcaption{font-family:var(--font-type);font-size:.82rem;color:var(--color-text-muted);margin-top:.6em;padding-left:1.35em}
+.prose .lyric figcaption::before{content:"— "}
