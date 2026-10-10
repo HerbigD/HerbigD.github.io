@@ -59,8 +59,8 @@ main{flex:1;padding:var(--space-12) 0 var(--space-16)}
 /* ---------- header ---------- */
 .site-header{padding:var(--space-8) 0 0}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
-.site-logo{font-size:1.6rem;font-weight:500;letter-spacing:-.02em;line-height:1;display:inline-flex;align-items:center;gap:.6rem}
-.site-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;filter:var(--img-filter);box-shadow:0 0 0 1px var(--color-border);transition:transform .25s}
+.site-logo{font-size:1.6rem;font-weight:500;letter-spacing:-.02em;line-height:1;display:inline-flex;align-items:center;gap:.75rem}
+.site-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;filter:var(--img-filter);box-shadow:0 0 0 1px var(--color-border);transition:transform .25s}
 .site-logo:hover .site-avatar{transform:rotate(-6deg)}
 .site-logo:hover{color:var(--color-accent)}
 .nav-links{display:flex;align-items:baseline;gap:var(--space-4);list-style:none;flex-wrap:wrap}
