@@ -3,7 +3,7 @@ title: "2026-06-03"
 date: 2026-06-03
 category: diary
 description: 日记一条
-draft: false
+draft: true
 ---
 <img src="/image/life/diary/kill_cat.jpg" alt="Kill the cat" width="400" />
 昨天晚上又喝多了、一个人也能喝多的、、 

@@ -3,7 +3,7 @@ title: "2026-06-04"
 date: 2026-06-04
 category: diary
 description: 日记一条
-draft: false
+draft: true
 ---
 <img src="/image/life/diary/bar.jpg" alt="Bar" width="400" />
 和猫好像有说不完的话

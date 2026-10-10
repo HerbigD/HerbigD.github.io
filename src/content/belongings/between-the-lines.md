@@ -40,3 +40,18 @@ draft: false
   </blockquote>
   <figcaption>I'm Not OK · Trent Dabbs - Future Like Snow</figcaption>
 </figure>
+
+<figure class="lyric">
+  <blockquote>
+    Did I cross the line?<br>
+
+  </blockquote>
+  <figcaption>WILDFLOWER · Billie Eilish - HIT ME HARD AND SOFT</figcaption>
+</figure>
+
+<figure class="lyric">
+  <blockquote>
+或者 偷歡算不上偷情
+  </blockquote>
+  <figcaption>偷情 · 张国荣 - 红</figcaption>
+</figure>
