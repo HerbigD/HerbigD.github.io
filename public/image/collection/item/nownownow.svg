@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <rect width="400" height="600" fill="#ece5d8"/>
+  <circle cx="200" cy="230" r="92" fill="none" stroke="#d6ccba" stroke-width="1"/>
+  <line x1="200" y1="230" x2="200" y2="168" stroke="#2b2724" stroke-width="2" stroke-linecap="round"/>
+  <line x1="200" y1="230" x2="246" y2="252" stroke="#7d2a33" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="200" cy="230" r="3.5" fill="#2b2724"/>
+  <text x="40" y="420" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#2b2724">now</text>
+  <text x="40" y="456" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#8c8378">now</text>
+  <text x="40" y="492" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#c4b9a6">now</text>
+  <line x1="40" y1="544" x2="72" y2="544" stroke="#7d2a33" stroke-width="1.5"/>
+  <text x="84" y="549" font-family="'Songti SC','STSong','Noto Serif SC',serif" font-size="15" letter-spacing="4" fill="#8c8378">最近在做什么</text>
+</svg>
