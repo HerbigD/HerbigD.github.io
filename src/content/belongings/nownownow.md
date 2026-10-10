@@ -11,6 +11,26 @@ draft: false
 系统地听不同风格的音乐。  
 最近在听 trip hop。
 
+## watching
+Ted Lasso S4  
+舍不得看完啊！
+
+## reading
+《恶心》- 萨特
+
+## thinking about
+u.  
+遇见你的第一天起，我每天每天想你。
+
+## doing
+和咪玩。  
+少喝酒。  
+连续更新blog一百天。  
+
+## learning
+Agent memory相关。  
+吉他
+
 </div>
 
 <!--
