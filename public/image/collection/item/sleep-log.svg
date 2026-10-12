@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <rect width="400" height="600" fill="#ece5d8"/>
+  <path d="M236 160 A80 80 0 1 0 236 300 A92 92 0 0 1 236 160 Z" fill="none" stroke="#7d2a33" stroke-width="1.5"/>
+  <text x="262" y="190" font-family="'Courier Prime','Courier New',monospace" font-size="22" fill="#8c8378">z</text>
+  <text x="284" y="164" font-family="'Courier Prime','Courier New',monospace" font-size="16" fill="#c4b9a6">z</text>
+  <line x1="40" y1="380" x2="360" y2="380" stroke="#d6ccba" stroke-width="1"/>
+  <text x="40" y="430" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#2b2724">02:31</text>
+  <text x="220" y="430" font-family="'Courier Prime','Courier New',monospace" font-size="30" fill="#8c8378">04:12</text>
+  <text x="40" y="460" font-family="'Courier Prime','Courier New',monospace" font-size="13" fill="#8c8378">D</text>
+  <text x="220" y="460" font-family="'Courier Prime','Courier New',monospace" font-size="13" fill="#8c8378">Amber</text>
+  <line x1="40" y1="534" x2="72" y2="534" stroke="#7d2a33" stroke-width="1.5"/>
+  <text x="84" y="539" font-family="'Songti SC','STSong','Noto Serif SC',serif" font-size="15" letter-spacing="4" fill="#8c8378">睡眠记录打卡</text>
+</svg>

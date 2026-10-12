@@ -22,6 +22,8 @@ const belongings = defineCollection({
   schema: z.object({
     ...basePost,
     cover: z.string().optional(),
+    /** 可选：显示在页面标题下方的小标题 */
+    subtitle: z.string().optional(),
   }),
 });
 

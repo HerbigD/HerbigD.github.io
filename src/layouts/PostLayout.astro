@@ -8,6 +8,7 @@ interface Props {
   title: string;
   date: Date;
   description?: string;
+  subtitle?: string;
   tags?: string[];
   backHref: string;
   backLabel: string;
@@ -16,13 +17,14 @@ interface Props {
   older?: Link;
 }
 
-const { title, date, description, tags, backHref, backLabel, minutes, newer, older } = Astro.props;
+const { title, date, description, subtitle, tags, backHref, backLabel, minutes, newer, older } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} bodyClass="is-post">
   <header class="post-header">
     <p class="post-kicker"><a href={backHref}>{backLabel}</a></p>
     <h1>{title}</h1>
+    {subtitle && <p class="post-subtitle">{subtitle}</p>}
     <div class="post-meta">
       <FormattedDate date={date} />
       {minutes && <span>约 {minutes} 分钟</span>}

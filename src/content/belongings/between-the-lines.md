@@ -20,7 +20,15 @@ draft: false
 
 写一两句当时的感觉（可不写）。
 -->
-
+<figure class="lyric">
+  <blockquote>
+    人聚了散了 就刚好<br>
+    不聚也不散 好极了<br>
+    时间也到了 不打扰<br>
+    有什么未了 大不了
+  </blockquote>
+  <figcaption>梦 · 王菲 - 幻乐一场演唱会</figcaption>
+</figure>
 
 
 <figure class="lyric">
