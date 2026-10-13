@@ -23,6 +23,14 @@ draft: false
   <time>10.12</time>
   <div class="sleep-cell"><span class="bed">02:31</span><span class="dur">3h58min</span></div>
   <div class="sleep-cell"><span class="bed">04:12</span><span class="dur">4h52min</span></div>
+  
+</div>
+
+<div class="sleep-day">
+  <time>10.13</time>
+  <div class="sleep-cell"><span class="bed">00:28</span><span class="dur">6h2min</span></div>
+  <div class="sleep-cell"><span class="bed">00:28</span><span class="dur">8h11min</span></div>
+  
 </div>
 
 </div>
