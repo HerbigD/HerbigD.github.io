@@ -33,4 +33,18 @@ draft: false
   
 </div>
 
+<div class="sleep-day">
+  <time>10.14</time>
+  <div class="sleep-cell"><span class="bed">未知（戒指没电了）</span><span class="dur">7h</span></div>
+  <div class="sleep-cell"><span class="bed">03:10</span><span class="dur">5h51min</span></div>
+  
+</div>
+
+<div class="sleep-day">
+  <time>10.15</time>
+  <div class="sleep-cell"><span class="bed">00:53</span><span class="dur">5h50min</span></div>
+  <div class="sleep-cell"><span class="bed">01:33</span><span class="dur">7h34min</span></div>
+  
+</div>
+
 </div>
