@@ -16,8 +16,7 @@ draft: false
 <div class="now">
 
 ## watching
-Ted Lasso S4  
-舍不得看完啊！
+Pink Floyd - The story of wish you were here
 </div>
 
 <div class="now">
@@ -29,8 +28,7 @@ Ted Lasso S4
 <div class="now">
 
 ## thinking about
-u.  
-遇见你的第一天起，我每天每天想你。
+我该想念谁呢
 </div>
 
 <div class="now">
