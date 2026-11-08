@@ -1,6 +1,6 @@
 --- 
 title: "#没有人说话"
-date: 2026-11.08
+date: 2026-11-08
 category: diary
 description: 我要连续更新blog100天
 draft: false
