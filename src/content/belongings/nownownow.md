@@ -8,8 +8,8 @@ draft: false
 <div class="now">
 
 ## listening
-系统地听不同风格的音乐。  
-最近在听 trip hop。  
+FUDGE - Michael Kiwanuka
+淡淡的、忧伤的
 </div>
 
 
